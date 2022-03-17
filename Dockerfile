@@ -2,12 +2,19 @@ FROM python:3.9-alpine3.13
 LABEL maintainer="smartquail.io"
 
 ENV PYTHONUNBUFFERED 1
+
+RUN apk add --no-cache git
+ARG username=smartquail
+ARG password=ms95355672
+RUN git clone https://github.com/SmartQuail/qnode0_app-0.1.git
+
 COPY ./requirements.txt /requirements.txt
-COPY ./qnode0_app /qnode0_app
 COPY ./scripts /scripts
 
 
-WORKDIR /qnode0_app
+
+
+WORKDIR qnode0_app-0.1/qnode0_app
 EXPOSE 8000 443
 EXPOSE 25
 

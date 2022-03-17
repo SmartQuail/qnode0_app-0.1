@@ -2,7 +2,7 @@ version : '3.9'
 
 services:
   qnode0_app:
-    image: smartquail/qnode0_app:0.1
+    image: smartquail/qnode0_app:0.1P
     restart: always
     volumes: 
       - static-data:/vol/web
