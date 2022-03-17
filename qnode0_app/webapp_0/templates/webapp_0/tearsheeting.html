@@ -1,0 +1,96 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%for item in page.galleria.all %}
+{% image item.image_8 scale-100 as t1 %}
+{% image item.image_9 scale-100 as t2 %}
+{% image item.image_10 scale-100 as t3 %}
+{% image item.image_11 scale-100 as t4 %}
+{% image item.image_12 scale-100 as t5 %}
+{% image item.image_13 scale-100 as t6 %}
+{% image item.image_14 scale-100 as t7 %}
+{% image item.image_15 scale-100 as t8 %}
+{% image item.image_16 scale-100 as t9 %}
+{% image item.image_17 scale-100 as t10 %}
+{% image item.image_18 scale-100 as t11 %}
+{% image item.image_19 scale-100 as t12 %}
+{% image item.image_20 scale-100 as t13 %}
+{% image item.image_21 scale-100 as t14 %}
+{% image item.image_22 scale-100 as t15 %}
+{% image item.image_23 scale-100 as t16 %}
+{% image item.image_24 scale-100 as t17 %}
+{% image item.image_25 scale-100 as t18 %}
+{% image item.image_26 scale-100 as t19 %}
+{% image item.image_27 scale-100 as t20 %}
+
+			<section class="gallery-area section-gap" id="gallery">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-8 pb-30 header-text">
+							<h1 class="text-white">Tear Sheeting</h1>
+						</div>
+					</div>
+					<div class="gal">
+						<a href="{{t1.url}}">
+						<img src="{{t1.url}}" alt="">
+						</a>
+						<a href="{{t2.url}}">
+						<img src="{{t2.url}}" alt="">
+						</a>
+						<a href="{{t3.url}}">
+						<img src="{{t3.url}}" alt="">
+						</a>
+						<a href="{{t4.url}}">
+						<img src="{{t4.url}}" alt="">
+						</a>
+						<a href="{{t5.url}}">
+						<img src="{{t5.url}}" alt="">
+						</a>
+						<a href="{{t6.url}}">
+						<img src="{{t6.url}}" alt="">
+						</a>
+						<a href="{{t7.url}}">
+						<img src="{{t7.url}}" alt="">
+						</a>
+						<a href="{{t8.url}}">
+						<img src="{{t8.url}}" alt="">
+						</a>
+						<a href="{{t9.url}}">
+						<img src="{{t9.url}}" alt="">
+						</a>
+						<a href="{{t10.url}}">
+						<img src="{{t10.url}}" alt="">
+						</a>
+						<a href="{{t11.url}}">
+						<img src="{{t11.url}}" alt="">
+						</a>
+						<a href="{{t12.url}}">
+						<img src="{{t12.url}}" alt="">
+						</a>
+						<a href="{{t13.url}}">
+						<img src="{{t13.url}}" alt="">
+						</a>
+						<a href="{{t14.url}}">
+						<img src="{{t14.url}}" alt="">
+						</a>
+						<a href="{{t15.url}}">
+						<img src="{{t15.url}}" alt="">
+						</a>
+						<a href="{{t16.url}}">
+						<img src="{{t16.url}}" alt="">
+						</a>
+						<a href="{{t17.url}}">
+						<img src="{{t17.url}}" alt="">
+						</a>
+						<a href="{{t18.url}}">
+						<img src="{{t18.url}}" alt="">
+						</a>
+						<a href="{{t19.url}}">
+						<img src="{{t19.url}}" alt="">
+						</a>
+						<a href="{{t20.url}}">
+						<img src="{{t20.url}}" alt="">
+						</a>
+					</div>
+				</div>
+			</section>
+{% endfor %}

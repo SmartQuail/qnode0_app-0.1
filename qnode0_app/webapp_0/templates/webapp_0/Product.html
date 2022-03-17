@@ -1,0 +1,61 @@
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static %}
+{% load thumbnail %}
+
+
+	
+<section class="blog-area section-gap" id="gallery">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 pb-30 header-text">
+				<h1 class="text-white">PORFOLIO</h1>
+			</div>
+		</div>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Main -->
+		<div id="main">
+		
+		{% for item in page.galleria.all %}
+       
+   
+        {% image item.image_6 fill-300x300 as land %}
+        {% image item.image_7 fill-500x500 as doc %}
+		{% image item.image_4  fill-500x500 as Adv %}
+		{% image item.image_5 fill-500x500 as produ %}
+	
+	
+		            <article class="thumb">
+			        <a href="{% slugurl 'advertising' %}">
+						<img src="{{ Adv.url }}" /></a>
+			         <h2>{{page.banner_title4|richtext}}</h2>
+		            </article>
+
+						<article class="thumb">
+							<a href="{% slugurl 'documentary' %}"><img src="{{ doc.url }}"  width="{{ doc.width }}" height="{{ doc.height }}"/></a>
+							<h2>{{page.banner_title5|richtext}}</h2>
+						</article>
+						<article class="thumb">
+							<a href="{% slugurl 'landscape' %}"><img src="{{ land.url }}"  width="{{ land.width }}" height="{{ land.height }}"/></a>
+							<h2>{{page.banner_title6|richtext}}</h2>
+						</article>
+						<article class="thumb">
+							<a href="{% slugurl 'products' %}"><img src="{{ produ.url }}" width="{{ produ.width }}" height="{{ produ.height }}" /></a>
+							<h2>{{page.banner_title7|richtext}}</h2>
+						</article>
+{% endfor %}
+						
+					</div>
+
+				</section>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main2.js' %}"></script>
+

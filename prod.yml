@@ -1,0 +1,106 @@
+version : '3.9'
+
+services:
+  qnode0_app:
+    image: smartquail/qnode0_app:0.1
+    restart: always
+    volumes: 
+      - static-data:/vol/web
+    environment: 
+    - DB_HOST=db
+    - DB_NAME=${DB_NAME}
+    - DB_USER=${DB_USER}
+    - DB_PASS=${DB_PASS}
+    - SECRET_KEY=${SECRET_KEY}
+    - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+    ports:
+      - 8000:8000
+      - 587:587
+      - 25:25
+    depends_on:
+    - db
+    networks:
+      - Qnodes_network
+
+  db:
+    image: smartquail/qnode0_db:0.1
+    restart: always
+    volumes: 
+      - postgres-data:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_DB=${DB_NAME} 
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+    ports:
+      - "5432:5432"
+    networks:
+      - Qnodes_network
+
+  
+
+  qnode0_proxy:
+    image: smartquail/qnode0_proxy:0.2
+    restart: always
+    depends_on: 
+    - qnode0_app
+    ports:
+    - "80:8000"
+    volumes: 
+     - static-data:/vol/static
+    networks:
+      - Qnodes_network
+
+  redis:
+    image: smartquail/qnode0_redis:0.1
+
+  logspout:
+    image: amouat/logspout-logstash
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+    links:
+      - logstash
+    command: logstash://logstash:5000
+    networks:
+      - Qnodes_network
+
+  logstash:
+    image: logstash:7.14.1
+    volumes: 
+      - ./logstash.conf:/etc/logstash.conf
+    environment:
+      LOGSPOUT: ignore
+    links:
+      - elasticsearch
+    command: -f /etc/logstash.conf
+
+    networks:
+      - Qnodes_network
+
+  elasticsearch:
+    image: elasticsearch:2.4.0
+    environment:
+      LOGSPOUT: ignore
+    networks:
+      - Qnodes_network
+
+  kibana: 
+    image: kibana:4
+    environment:
+      LOGSPOUT: ignore
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    links:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+    networks:
+      - Qnodes_network
+
+
+networks: 
+  Qnodes_network:
+    driver: bridge
+
+volumes: 
+ postgres-data:
+ static-data:
+

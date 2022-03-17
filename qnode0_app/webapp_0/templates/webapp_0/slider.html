@@ -1,0 +1,83 @@
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load webapp_0_tags %}
+{% load static %}
+
+
+
+							
+			<section class="banner-area relative" id="home">
+				{%for item in page.galleria.all %}
+            {% image item.image scale-100 as s1 %}
+			{% image item.image_2 scale-100 as s2 %}
+			{% image item.image_3 scale-100 as s3 %}
+			{% image item.image_4_2 scale-100 as s4 %}
+			{% image item.image_5_2 scale-100 as s5 %}
+			{% image item.image_6_2 scale-100 as s6 %}
+			{% image item.image_7_2 scale-100 as s7 %}
+			{% image item.image_8_2 scale-100 as s8 %}
+			{% image item.image_9_2 scale-100 as s9 %}
+			{% image item.image_10_2 scale-100 as s10 %}	
+
+            <div class="slider">
+				<div id="owl-demo" class="owl-carousel owl-theme" data-ride="carousel">
+				        <div class="carousel-inner" role="listbox">
+							
+				          <!-- Slide One - Set the background image for this slide in the line below -->
+				          <div class="carousel-item active" style="background-image: url('{{ s1.url }}')">
+				            <div class="carousel-caption d-md-block">			              
+				            </div>
+				          </div>						
+				          <!-- Slide Two - Set the background image for this slide in the line below -->
+				          <div class="carousel-item" style="background-image: url('{{ s2.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+				          <!-- Slide Three - Set the background image for this slide in the line below -->
+				          <div class="carousel-item" style="background-image: url('{{ s3.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s4.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s5.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s6.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s7.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s8.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s9.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+						  <div class="carousel-item" style="background-image: url('{{ s10.url }}')">
+				            <div class="carousel-caption d-md-block">
+				            </div>
+				          </div>
+
+				        </div>				        
+				      </div>
+				</div>	
+				{% endfor %}	
+			</section>
+			

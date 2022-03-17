@@ -1,0 +1,125 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load widget_tweaks %}
+
+<section class="contact-area" id="contact">
+				<div class="container-fluid">
+					<div class="row d-flex justify-content-end align-items-center">
+						<div class="col-lg-5 col-md-12 contact-left no-padding">
+							
+						{%for item in page.galleria.all %}
+                        {% image item.profile_pic scale-10 as pf %}
+							<img class="img-fluid" src="{{pf.url}}" alt="">
+						{% endfor %}
+						<div class="wrapper">
+							<div class="inner-1 overflow extra">
+								<div class="txt-1"> <h2>Juan Silva </h2> {{ page.bio| richtext }}.</div>
+								
+							  </div>
+							  
+							</div>
+							<br>
+							<p>
+								&nbsp;
+								
+								&nbsp;
+								<a href="https://goo.gl/maps/ayp6va4B3B4LSqVu9">  <i class="fa-solid fa-location-dot fa-2x"></i></a>
+								&nbsp;
+								&nbsp;
+								
+								<a href="https://api.whatsapp.com/send?phone=593984534954"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+							&nbsp;
+							&nbsp;
+							
+							<a href="mailto:info@juansilvaphoto.com">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-envelope fa-2x"></i></a> 
+							&nbsp;
+							&nbsp;
+							
+								
+								{% if settings.webapp_0.SocialMediaSettings.facebook %}
+								<a href="{{ settings.webapp_0.SocialMediaSettings.facebook }}">
+								<i class="fa fa-facebook fa-2x"></i>
+								</a>
+							{% endif %}
+							&nbsp;
+							&nbsp;
+
+							{% if settings.webapp_0.SocialMediaSettings.instagram %}
+							<a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}">
+							<i class="fa fa-instagram fa-2x"></i>
+							</a>
+						{% endif %}
+
+						&nbsp;
+						&nbsp;
+
+						{% if settings.webapp_0.SocialMediaSettings.twitter %}
+							<a href="{{ settings.webapp_0.SocialMediaSettings.twitter }}">
+							<i class="fa fa-twitter fa-2x"></i>
+							</a>
+						{% endif %}
+
+						&nbsp;
+						&nbsp;
+
+						
+						{% if settings.webapp_0.SocialMediaSettings.youtube %}
+							<a href="{{ settings.webapp_0.SocialMediaSettings.youtube }}">
+							<i class="fa fa-youtube fa-2x"></i>
+							</a>
+						{% endif %}
+
+						&nbsp;
+						&nbsp;
+						
+						</p>
+						</div>
+						<div class="col-lg-7 col-md-12 contact-right no-padding">
+							<h1>Cuentame Tu Propuesta</h1>
+							
+           	<form action="{% pageurl page %}" method="POST" novalidate>
+					{% csrf_token %}
+					{% for hidden_field in form.hidden_fields %}
+					  {{ hidden_field }}
+					{% endfor %}
+				  
+					{% if form.non_field_errors %}
+					  <div class="alert alert-danger" role="alert">
+						{% for error in form.non_field_errors %}
+						  {{ error }}
+						{% endfor %}
+					  </div>
+					{% endif %}
+				  
+					{% for field in form.visible_fields %}
+					  <div class="form-group">
+						{{ field.label_tag }}
+				  
+						{% if form.is_bound %}
+						  {% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+							  <div class="invalid-feedback">
+								{{ error }}
+							  </div>
+							{% endfor %}
+						  {% else %}
+							{% render_field field class="form-control is-valid" %}
+						  {% endif %}
+						{% else %}
+						  {% render_field field class="form-control" %}
+						{% endif %}
+				  
+						{% if field.help_text %}
+						  <small class="form-text text-muted">{{ field.help_text }}</small>
+						{% endif %}
+					  </div>
+					{% endfor %}          
+					<input type="submit" value="Enviar" class="primary" />
+				  </form>
+							</div>
+						</div>						
+					</div>
+				</div>	
+			</section>
+			<!-- End contact Area -->

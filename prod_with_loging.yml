@@ -1,0 +1,36 @@
+qnode0_proxy:
+  image: smartquail/qnode0_proxy:0.1
+  links:
+    - qnode0_app
+  ports:
+    - "80:8000"
+  volumes: 
+     - static-data:/vol/static
+
+qnode0_app:
+  image: smartquail/qnode0_app:0.1
+  links:
+    - redis
+    - db
+
+qnode0_db:
+  image: smartquail/qnode0_db:0.1
+  restart: always
+    volumes: 
+      - postgres-data:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_DB=${DB_NAME} 
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+
+redis:
+    image: smartquail/qnode0_redis:0.1
+
+logspout:
+  image: amouat/logspout-logstash
+  volumes:
+  - /var/run/docker.sock:/tmp/docker.sock
+  ports:
+  - "9000:80"
+
+   

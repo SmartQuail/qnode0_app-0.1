@@ -1,0 +1,52 @@
+{% extends "webapp_0/base.html" %}
+
+{% load wagtailimages_tags wagtailcore_tags %}
+
+
+
+{% block content %}
+
+
+
+<section class="blog-area section-gap" id="blog">
+
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-8 pb-30 header-text">
+							<h1>Shooting Now!</h1>
+						</div>
+					</div>
+
+					<div class="row">
+                    {% for post in posts %}	
+						<div class="single-blog col-lg-4 col-md-4">
+                        {% image post.news_image fill-250x250 as new_image %}
+							<img class="f-img img-fluid mx-auto" src="{{ new_image.url }}" alt="{{ new_image.alt }}">
+							<h4>
+								<a href = "{{ post.url }}">{{ post.custom_title }}</a>
+							</h4>
+								<h3>
+								{{ post.content }}
+								</h3>
+							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div>
+									<img class="img-fluid" src="img/user.png" alt="">
+									<a href="#"><span>Mark Wiens</span></a>
+								</div>
+								<div class="meta">
+									13th Dec
+									<span class="lnr lnr-heart"></span> 15
+									<span class="lnr lnr-bubble"></span> 04
+								</div>
+							</div>
+                            
+						</div>
+                        {% endfor %}									
+					</div>
+				</div>
+            	
+			</section>
+{% endblock %}
+
+
+

@@ -1,0 +1,69 @@
+
+{% extends "webapp_0/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load webapp_0_tags %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+
+{% include 'webapp_0/header.html' %}
+
+{% include 'webapp_0/slider.html' %}
+
+{% include 'webapp_0/Product.html' %}
+
+{% include 'webapp_0/tearsheeting.html' %}
+
+
+
+
+<section class="blog-area section-gap" id="blog">
+
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-8 pb-30 header-text">
+							<h1>Shooting Now!</h1>
+						</div>
+					</div>
+
+					
+					<div class="row">
+                    {% for post in posts %}	
+						<div class="single-blog col-lg-4 col-md-4">
+                        {% image post.news_image fill-500x500 as new_image %}
+							<a href="{{ post.url }}"><img class="f-img img-fluid mx-auto" src="{{ new_image.url }}" alt="{{ new_image.alt }}"></a>
+							<h4>
+								<a href = "{{ post.url }}">{{ post.custom_title }}</a>
+							</h4>
+							
+							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div>
+									<img class="img-fluid circular--square" src="img/user.png" alt="">
+									<a href="#"><span>{{post.author}}</span></a>
+								</div>
+								<div class="meta">
+									{{ post.Fecha|date:"d M,Y" }}
+									<!--<span class="lnr lnr-heart"></span> 15 <span class="lnr lnr-bubble"></span> 04 -->
+								</div>
+							</div>            
+						</div>
+                        {% endfor %}									
+					</div>
+				</div>
+				</div>
+				</div>
+            	
+			</section>
+
+{% include 'webapp_0/contact.html' %}
+{% include 'webapp_0/footer.html' %}
+
+{% endblock %}
+
+
+

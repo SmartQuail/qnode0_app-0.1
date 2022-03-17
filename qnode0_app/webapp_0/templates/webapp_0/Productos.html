@@ -1,0 +1,458 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>{{ page.title }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/gallery.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+		<script src="https://kit.fontawesome.com/acc6ab0dae.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					{% for item in page.galleria_3.all %}
+                    {% image item.logo scale-65 as logo %}
+						<h1><a href="{% slugurl  'index' %}"><strong><img src="{{ logo.url }}" alt="" /></strong></a></h1>
+					{% endfor %}
+						<nav>
+							<ul>
+								<li><a href="#footer" class="icon fa-info-circle">Products Info</a></li>
+							</ul>
+						</nav>
+					</header>
+
+
+
+					<div id="main">
+					{% for item in page.galleria_3.all %}
+            {% image item.image scale-100 as F1 %}
+			{% image item.image_2 scale-100 as F2 %}
+			{% image item.image_3 scale-100 as F3 %}
+			{% image item.image_4 scale-100 as F4 %}
+			{% image item.image_5 scale-100 as F5 %}
+			{% image item.image_6 scale-100 as F6 %}
+			{% image item.image_7 scale-100 as F7 %}
+			{% image item.image_8 scale-100 as F8 %}
+			{% image item.image_9 scale-100 as F9 %}
+			{% image item.image_10 scale-100 as F10 %}
+			{% image item.image_11 scale-100 as F11 %}
+			{% image item.image_12 scale-100 as F12 %}
+			{% image item.image_13 scale-100 as F13 %}
+			{% image item.image_14 scale-100 as F14 %}
+			{% image item.image_15 scale-100 as F15 %}
+			{% image item.image_16 scale-100 as F16 %}
+			{% image item.image_17 scale-100 as F17 %}
+			{% image item.image_18 scale-100 as F18 %}
+			{% image item.image_19 scale-100 as F19 %}
+			{% image item.image_20 scale-100 as F20 %}
+			{% image item.image_21 scale-100 as F21 %}
+			{% image item.image_22 scale-100 as F22 %}
+			{% image item.image_23 scale-100 as F23 %}
+			{% image item.image_24 scale-100 as F24 %}
+			{% image item.image_25 scale-100 as F25 %}
+			{% image item.image_26 scale-100 as F26 %}
+			{% image item.image_27 scale-100 as F27 %}
+			{% image item.image_28 scale-100 as F28 %}
+			{% image item.image_29 scale-100 as F29 %}
+			{% image item.image_30 scale-100 as F30 %}
+			{% image item.image_31 scale-100 as F31 %}
+			{% image item.image_32 scale-100 as F32 %}
+			{% image item.image_33 scale-100 as F33 %}
+			{% image item.image_34 scale-100 as F34 %}
+			{% image item.image_35 scale-100 as F35 %}
+			{% image item.image_36 scale-100 as F36 %}
+			{% image item.image_37 scale-100 as F37 %}
+			{% image item.image_38 scale-100 as F38 %}
+			{% image item.image_39 scale-100 as F39 %}
+			{% image item.image_40 scale-100 as F40 %}
+			{% image item.image_41 scale-100 as F41 %}
+			{% image item.image_42 scale-100 as F42 %}
+			{% image item.image_43 scale-100 as F43 %}
+			{% image item.image_44 scale-100 as F44 %}
+			{% image item.image_45 scale-100 as F45 %}
+			{% image item.image_46 scale-100 as F46 %}
+			{% image item.image_47 scale-100 as F47 %}
+			{% image item.image_48 scale-100 as F48 %}
+			{% image item.image_49 scale-100 as F49 %}
+			{% image item.image_50 scale-100 as F50 %}
+			{% image item.image_51 scale-100 as F51 %}
+			{% image item.image_52 scale-100 as F52 %}
+			{% image item.image_53 scale-100 as F53 %}
+			{% image item.image_54 scale-100 as F54 %}
+			{% image item.image_55 scale-100 as F55 %}
+			{% image item.image_56 scale-100 as F56 %}
+			{% image item.image_57 scale-100 as F57 %}
+			{% image item.image_58 scale-100 as F58 %}
+			{% image item.image_59 scale-100 as F59 %}
+			{% image item.image_60 scale-100 as F60 %}
+						<article class="thumb">
+							<a href="{{ F1.url }}" class="image"><img src="{{ F1.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F2.url }}" class="image"><img src="{{ F2.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F3.url }}" class="image"><img src="{{ F3.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F4.url }}" class="image"><img src="{{ F4.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F5.url }}" class="image"><img src="{{ F5.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F6.url }}" class="image"><img src="{{ F6.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F7.url }}" class="image"><img src="{{ F7.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F8.url }}" class="image"><img src="{{ F8.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F9.url }}" class="image"><img src="{{ F9.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F10.url }}" class="image"><img src="{{ F10.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F11.url }}" class="image"><img src="{{ F11.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F12.url }}" class="image"><img src="{{ F12.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F13.url }}" class="image"><img src="{{ F13.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F14.url }}" class="image"><img src="{{ F14.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F15.url }}" class="image"><img src="{{ F15.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F16.url }}" class="image"><img src="{{ F16.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F17.url }}" class="image"><img src="{{ F17.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F18.url }}" class="image"><img src="{{ F18.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F19.url }}" class="image"><img src="{{ F19.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F20.url }}" class="image"><img src="{{ F20.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F21.url }}" class="image"><img src="{{ F21.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F22.url }}" class="image"><img src="{{ F22.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F23.url }}" class="image"><img src="{{ F23.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F24.url }}" class="image"><img src="{{ F24.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F25.url }}" class="image"><img src="{{ F25.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F26.url }}" class="image"><img src="{{ F26.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F27.url }}" class="image"><img src="{{ F27.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F28.url }}" class="image"><img src="{{ F28.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F29.url }}" class="image"><img src="{{ F29.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F30.url }}" class="image"><img src="{{ F30.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F31.url }}" class="image"><img src="{{ F31.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F32.url }}" class="image"><img src="{{ F32.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F33.url }}" class="image"><img src="{{ F33.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F34.url }}" class="image"><img src="{{ F34.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F35.url }}" class="image"><img src="{{ F35.url }}" alt="" /></a>
+						
+						</article>
+						<article class="thumb">
+							<a href="{{ F36.url }}" class="image"><img src="{{ F36.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F37.url }}" class="image"><img src="{{ F37.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F38.url }}" class="image"><img src="{{ F38.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F39.url }}" class="image"><img src="{{ F39.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F40.url }}" class="image"><img src="{{ F40.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F41.url }}" class="image"><img src="{{ F41.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F42.url }}" class="image"><img src="{{ F42.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F43.url }}" class="image"><img src="{{ F43.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F44.url }}" class="image"><img src="{{ F44.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F45.url }}" class="image"><img src="{{ F45.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F46.url }}" class="image"><img src="{{ F46.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F47.url }}" class="image"><img src="{{ F47.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F48.url }}" class="image"><img src="{{ F48.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F49.url }}" class="image"><img src="{{ F49.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F50.url }}" class="image"><img src="{{ F50.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F51.url }}" class="image"><img src="{{ F51.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F52.url }}" class="image"><img src="{{ F52.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F53.url }}" class="image"><img src="{{ F53.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F54.url }}" class="image"><img src="{{ F54.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F55.url }}" class="image"><img src="{{ F55.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F56.url }}" class="image"><img src="{{ F56.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F57.url }}" class="image"><img src="{{ F57.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F58.url }}" class="image"><img src="{{ F58.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F59.url }}" class="image"><img src="{{ F59.url }}" alt="" /></a>
+							
+						</article>
+						<article class="thumb">
+							<a href="{{ F60.url }}" class="image"><img src="{{ 60.url }}" alt="" /></a>
+							
+						</article>
+			{% endfor %}
+					</div>
+			<footer id="footer" class="panel">
+						<div class="inner split">
+							<div>
+								<section>
+									<h2>Products Gallery</h2>
+									<p>{{page.Ad_info}}</p>
+								</section>
+								<section>
+
+									<table>
+										{% for question, answers in results.items %}
+										<tr>
+										  <th>{{  question  }}</th>
+										  
+										</tr>
+										<tr>
+											{% for answer, count in answers.items %}
+										  <td>{{ answer }}: {{ count }}  <i class="fa-solid fa-thumbs-up"></i></td>			
+										  {% endfor %}
+										</tr>
+										{% endfor %}
+									  </table>
+
+
+								
+								</section>
+								<section>
+									<h2>{{page.Ad_link|richtext}}</h2>
+									<ul class="icons">
+									<li>
+									{% if settings.webapp_0.SocialMediaSettings.facebook %}
+									<a href="{{ settings.webapp_0.SocialMediaSettings.facebook }}">
+									<i class="icon fa-facebook"></i>
+									</a>
+							        {% endif %}
+									</li>
+									<li>
+									{% if settings.webapp_0.SocialMediaSettings.instagram %}
+									<a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}">
+									<i class="icon fa-instagram"></i>
+									</a>
+									</li>
+									<li>
+							        {% endif %}
+									{% if settings.webapp_0.SocialMediaSettings.twitter %}
+									<a href="{{ settings.webapp_0.SocialMediaSettings.twitter }}">
+									<i class="icon fa-twitter"></i>
+									</a>
+							        {% endif %}
+									</li>
+									</ul>
+								</section>
+								<p class="copyright">
+									&copy; Powered by: <a href="#">SmartQuail,Inc</a>.
+								</p>
+							</div>
+							<div>
+								<section>
+									<h2>Si te gusto esta galeria, dejame tus comentarios</h2>
+									<form action="{% pageurl page %}" method="POST" novalidate>
+					{% csrf_token %}
+					{% for hidden_field in form.hidden_fields %}
+					  {{ hidden_field }}
+					{% endfor %}
+
+					{% if form.non_field_errors %}
+					  <div class="alert alert-danger" role="alert">
+						{% for error in form.non_field_errors %}
+						  {{ error }}
+						{% endfor %}
+					  </div>
+					{% endif %}
+
+					{% for field in form.visible_fields %}
+					  <div class="form-group">
+						{{ field.label_tag }}
+
+						{% if form.is_bound %}
+						  {% if field.errors %}
+							{% render_field field class="form-control is-invalid" %}
+							{% for error in field.errors %}
+							  <div class="invalid-feedback">
+								{{ error }}
+							  </div>
+							{% endfor %}
+						  {% else %}
+							{% render_field field class="form-control is-valid" %}
+						  {% endif %}
+						{% else %}
+						  {% render_field field class="form-control" %}
+						{% endif %}
+
+						{% if field.help_text %}
+						  <small class="form-text text-muted">{{ field.help_text }}</small>
+						{% endif %}
+					  </div>
+					{% endfor %}
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				  </form>
+								</section>
+							</div>
+						</div>
+					</footer>
+
+				<!-- Footer -->
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main2.js' %}"></script>
+
+	</body>
+</html>

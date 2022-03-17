@@ -1,0 +1,67 @@
+header {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: hsl(0deg 0% 30%);
+    margin-bottom: 2em;
+}
+
+a {
+    color: hsl(338deg 76% 60%);
+    text-decoration: none;
+}
+
+.hallotoolbar [class*=" icon-"]:before, .hallotoolbar [class^=icon-], .hallotoolbar [class^=icon-]:before, .icon:after, .icon:before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: wagtail;
+    color:hsl(198deg 59% 52%);
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    text-decoration: none;
+    width: 1.3em;
+    line-height: 1em;
+    text-align: left;
+    vertical-align: middle;
+    margin-right: .2em;
+}
+
+.page-explorer .listing .index {
+    color: #fff;
+    background-color: hsl(0deg 0% 10%);
+}
+
+
+.object>.title-wrapper {
+    box-sizing: border-box;
+    height: 40px;
+    -webkit-font-smoothing: auto;
+    background: #f1be4b;
+    color: #200200;
+    text-transform: uppercase;
+    padding: .9em 0 .9em 5em;
+    font-size: .95em;
+    margin: 0;
+    line-height: 1.5em;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.breadcrumb {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    overflow: hidden;
+    padding-top: 1.4em;
+    font-size: .85em;
+    line-height: 1.5em;
+    margin-left: 2em;
+    background: hsl(0deg 0% 45%);
+}

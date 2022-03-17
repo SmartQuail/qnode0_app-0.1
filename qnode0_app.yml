@@ -1,0 +1,49 @@
+---
+- hosts: qnode0_app
+  sudo: yes
+  tasks:
+  - name: easy_install
+    apt: pkg=python-setuptools
+  - name: pip
+    easy_install: name=pip
+  - name: docker-py
+    pip: name=docker-py
+  - name: redis container
+    docker:
+     name: redis
+     image: smartquail/qnode0_redis:0.1
+     pull: always
+     state: reloaded
+     restart_policy: always
+  - name: qnode0_app container
+    docker:
+    name: qnode0_app
+    image: smartquail/qnode0_app:0.1
+    pull: always
+    state: reloaded
+    links:
+      - "redis:redis"
+    restart_policy: always
+  - name: qnode0_proxy container
+    docker:
+    name: qnode0_proxy
+    image: smartquail/qnode0_proxy:0.1
+    pull: always
+    state: reloaded
+    links:
+     - "qnode0_app:qnode0_app"
+    ports:
+     - "80:8000"
+    restart_policy: always
+
+  - name: qnode0_db container
+    docker:
+    name: qnode0_db
+    image: smartquail/qnode0_db:0.1
+    pull: always
+    state: reloaded
+    links:
+     - "qnode0_app:qnode0_app"
+    ports:
+     - "5432"
+    restart_policy: always

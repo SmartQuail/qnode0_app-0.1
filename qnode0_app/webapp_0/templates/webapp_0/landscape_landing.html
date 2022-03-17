@@ -1,0 +1,30 @@
+{% extends "webapp_0/index.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load webapp_0_tags %}
+{% load static %}
+
+
+{% block content%}
+{% include 'webapp_0/header.html' %}
+
+<section class="contact-area" id="contact">
+				<div class="container-fluid">
+					<div class="row d-flex justify-content-end align-items-center">
+						<div class="col-lg-5 col-md-12 contact-left no-padding">
+						{%for item in page.galleria_4.all %}
+                        {% image item.image scale-100 as pf %}
+							<img class="img-fluid" src="{{pf.url}}" alt="">
+						{% endfor %}
+						</div>
+						<div class="col-lg-7 col-md-12 contact-right no-padding">
+							<h1>{{ self.thank_you_text|richtext }}</h1>
+							
+							</div>
+						</div>						
+					</div>
+				</div>	
+			</section>
+
+{% include 'webapp_0/footer.html' %}
+{% endblock %}

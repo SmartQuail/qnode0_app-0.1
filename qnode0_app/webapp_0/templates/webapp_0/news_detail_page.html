@@ -1,0 +1,166 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>{{ page.title }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/gallery.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					{% for item in page.galleria_News.all %}
+                    {% image item.logo scale-65 as logo %}
+						<h1><a href="{% slugurl 'index' %}"><strong><img src="{{ logo.url }}" alt="" /></strong></a></h1>
+					{% endfor %}
+						<nav>
+							<ul>
+								<li><a href="#footer" class="icon fa-info-circle">{{ self.custom_title }} Info</a></li>
+							</ul>
+						</nav>
+					</header>
+
+			
+
+					<div id="main">
+					{% for item in page.galleria_News.all %}
+            {% image item.image scale-100 as F1 %}
+			{% image item.image_2 scale-100 as F2 %}
+			{% image item.image_3 scale-100 as F3 %}
+			{% image item.image_4 scale-100 as F4 %}
+			{% image item.image_5 scale-100 as F5 %}
+			{% image item.image_6 scale-100 as F6 %}
+			{% image item.image_7 scale-100 as F7 %}
+			{% image item.image_8 scale-100 as F8 %}
+			{% image item.image_9 scale-100 as F9 %}
+			{% image item.image_10 scale-100 as F10 %}
+			
+						<article class="thumb">
+							<a href="{{ F1.url }}" class="image"><img src="{{ F1.url }}" alt="" /></a>
+							<h2>{{page.Ad_info1}}</h2>
+							<p><a href="www.google.com">{{page.Ad_date1}}</a></p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F2.url }}" class="image"><img src="{{ F2.url }}" alt="" /></a>
+							<h2>{{page.Ad_info2}}</h2>
+							<p>{{page.Ad_date2}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F3.url }}" class="image"><img src="{{ F3.url }}" alt="" /></a>
+							<h2>{{page.Ad_info3}}</h2>
+							<p>{{page.Ad_date3}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F4.url }}" class="image"><img src="{{ F4.url }}" alt="" /></a>
+							<h2>{{page.Ad_info4}}</h2>
+							<p>{{page.Ad_date4}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F5.url }}" class="image"><img src="{{ F5.url }}" alt="" /></a>
+							<h2>{{page.Ad_info5}}</h2>
+							<p>{{page.Ad_date5}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F6.url }}" class="image"><img src="{{ F6.url }}" alt="" /></a>
+							<h2>{{page.Ad_info6}}</h2>
+							<p>{{page.Ad_date6}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F7.url }}" class="image"><img src="{{ F7.url }}" alt="" /></a>
+							<h2>{{page.Ad_info7}}</h2>
+							<p>{{page.Ad_date7}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F8.url }}" class="image"><img src="{{ F8.url }}" alt="" /></a>
+							<h2>{{page.Ad_info8}}</h2>
+							<p>{{page.Ad_date8}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F9.url }}" class="image"><img src="{{ F9.url }}" alt="" /></a>
+							<h2>{{page.Ad_info9}}</h2>
+							<p>{{page.Ad_date9}}</p>
+						</article>
+						<article class="thumb">
+							<a href="{{ F10.url }}" class="image"><img src="{{ F10.url }}" alt="" /></a>
+							<h2>{{page.Ad_info10}}</h2>
+							<p>{{page.Ad_date10}}</p>
+						</article>
+						
+			{% endfor %}
+					</div>
+			<footer id="footer" class="panel">
+						<div class="inner split">
+							<div>
+								<section>
+									<h2>Shooting Now!</h2>
+									<p>{{page.Ad_info}}</p>
+								</section>
+								<section>
+									<h2>{{page.Ad_link|richtext}}</h2>
+									<ul class="icons">
+									<li>
+									{% if settings.webapp_0.SocialMediaSettings.facebook %}
+									<a href="{{ settings.webapp_0.SocialMediaSettings.facebook }}">
+									<i class="icon fa-facebook"></i>
+									</a>
+							        {% endif %}
+									</li>
+									<li>
+									{% if settings.webapp_0.SocialMediaSettings.instagram %}
+									<a href="{{ settings.webapp_0.SocialMediaSettings.instagram }}">
+									<i class="icon fa-instagram"></i>
+									</a>
+									</li>
+									<li>
+							        {% endif %}
+									{% if settings.webapp_0.SocialMediaSettings.twitter %}
+									<a href="{{ settings.webapp_0.SocialMediaSettings.twitter }}">
+									<i class="icon fa-twitter"></i>
+									</a>
+							        {% endif %}
+									</li>
+									</ul>
+								</section>
+								<p class="copyright">
+									&copy; Powered by: <a href="#">SmartQuail,Inc</a>.
+								</p>
+							</div>
+							<div>
+								<section>
+								{% image self.news_image width-380 as banner %}
+								<img src="{{ banner.url }}" alt="{{ banner.url }}">
+									<h1>{{ self.custom_title }}</h1>
+                                    {% for block in self.content %}
+<p>{% include_block block %}</p>
+{% endfor %}
+				    
+								</section>
+							</div>
+						</div>
+					</footer>
+
+				<!-- Footer -->
+					
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'js/browser.min.js' %}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main2.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,43 @@
+#Frameworks
+Django>=3.0,< 3.2
+wagtail 
+#DataBase
+psycopg2>=2.8.6,<2.9
+#Servers
+celery
+uWSGI >=2.0.19.1,<2.1
+redis == 2.10.3
+#gunicorn>=20.0.4,<20.1
+
+#Lenguaje
+django-parler
+django-extensions
+django-localflavor
+django-rosetta
+
+#Web App
+#django-humanize
+#django-phone-field
+#django-widget-tweaks
+#django-bootstrap4
+#social-auth-app-django
+sorl-thumbnail
+#easy-thumbnail
+ #ReporBusinessLab
+braintree
+#WeasyPrint
+#django-weasyprint
+
+#Blog_app
+django-extensions==3.1.3
+wagtail-markdown==0.7
+Pygments
+wagtail-django-recaptcha==1.0
+django-crispy-forms==1.12.0
+crispy-bootstrap5==0.4
+wagtailmenus==3.0.2
+wagtail-metadata==3.4.0
+python-webpack-boilerplate==0.0.3
+django-contrib-comments==2.1.0
+emoji==0.6.0
+django-widget-tweaks==1.4.8
