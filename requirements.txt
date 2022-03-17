@@ -38,8 +38,8 @@ easy-thumbnails==2.8
 #smartquail: Qnodes_webapp_reports requiremnts
 
 
-WeasyPrint==50
-django-weasyprint
+#WeasyPrint==50
+#django-weasyprint
 django-phonenumber-field[phonenumbers]
 #smartquail: Qnodes_webapp_brokers requiremnts
 braintree
