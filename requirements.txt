@@ -55,3 +55,5 @@ django-memcache-status
 
 ##smartquail: Qnodes_API requiremnts
 djangorestframework
+
+wagtail-django-recaptcha==1.0
