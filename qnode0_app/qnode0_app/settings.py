@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     #'crispy_forms',
     #'crispy_bootstrap5',
     #'captcha',
-    #'wagtailcaptcha',
+    'wagtailcaptcha',
     #"wagtailmenus",
     #'wagtailmetadata',
     #'webpack_loader',
@@ -227,6 +227,6 @@ STATIC_ROOT = '/vol/web/static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
+#CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+#CRISPY_TEMPLATE_PACK = "bootstrap5"
 
