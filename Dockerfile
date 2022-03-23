@@ -15,7 +15,7 @@ COPY ./scripts /scripts
 
 
 WORKDIR qnode0_app-0.1/qnode0_app
-EXPOSE 8000 443
+EXPOSE 8080 443
 EXPOSE 25
 
 
