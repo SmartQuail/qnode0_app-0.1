@@ -47,4 +47,4 @@ ENV PATH="/scripts:/py/bin:$PATH"
 USER qnode0
 
 CMD ["run.sh"]
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "qnode0_app.wsgi:application"]
+CMD ["gunicorn", "--bind", ":9000", "--workers", "3", "qnode0_app.wsgi:application"]
