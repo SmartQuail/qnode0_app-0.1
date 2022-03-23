@@ -10,7 +10,7 @@ RUN git clone https://github.com/SmartQuail/qnode0_app-0.1.git
 
 COPY ./requirements.txt /requirements.txt
 COPY ./scripts /scripts
-
+COPY ./.env /.env
 
 
 

@@ -1,0 +1,58 @@
+version : '3.9'
+
+services:
+  qnode0_app:
+    image: smartquail/qnode0_app:0.1Dev
+    restart: always
+    volumes: 
+      - static-data:/vol/web
+    env_file:
+        - .env  
+    ports:
+      - 8000:8000
+      - 587:587
+      - 25:25
+    depends_on:
+    - db
+    networks:
+      - Qnodes_network
+
+  db:
+    image: smartquail/qnode0_db:0.1
+    restart: always
+    volumes: 
+      - postgres-data:/var/lib/postgresql/data
+    env_file:
+        - .env  
+    ports:
+      - "5432:5432"
+    networks:
+      - Qnodes_network
+
+  
+
+  qnode0_proxy:
+    image: smartquail/qnode0_proxy:0.2
+    restart: always
+    depends_on: 
+    - qnode0_app
+    ports:
+    - "80:8000"
+    volumes: 
+     - static-data:/vol/static
+    networks:
+      - Qnodes_network
+
+  redis:
+    image: smartquail/qnode0_redis:0.1
+
+  
+
+networks: 
+  Qnodes_network:
+    driver: bridge
+
+volumes: 
+ postgres-data:
+ static-data:
+
