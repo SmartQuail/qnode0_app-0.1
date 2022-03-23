@@ -15,7 +15,7 @@ COPY ./scripts /scripts
 
 
 WORKDIR qnode0_app-0.1/qnode0_app
-EXPOSE 8080 443
+EXPOSE 8000 443
 EXPOSE 25
 
 
@@ -47,3 +47,4 @@ ENV PATH="/scripts:/py/bin:$PATH"
 USER qnode0
 
 CMD ["run.sh"]
+CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "qnode0_app.wsgi:application"]
