@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import json
+import logging.config
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'modelcluster',
     'streams',
+    'storages',
     
     'webapp_0',
     #'social_django',
@@ -74,8 +78,8 @@ INSTALLED_APPS = [
     #'crispy_bootstrap5',
     #'captcha',
     'wagtailcaptcha',
-    #"wagtailmenus",
-    #'wagtailmetadata',
+    'wagtailmenus',
+    'wagtailmetadata',
     #'webpack_loader',
     #'django_comments',
     #'custom_comments.apps.CustomCommentsConfig',
@@ -162,7 +166,7 @@ WSGI_APPLICATION = 'qnode0_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': os.environ.get('DATABASE_ENGINE'),
         'HOST': os.environ.get('DB_HOST'),
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
@@ -216,6 +220,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+# Moving static assets to DigitalOcean Spaces as per:
+# https://www.digitalocean.com/community/tutorials/how-to-set-up-object-storage-with-django
+AWS_ACCESS_KEY_ID = os.getenv('STATIC_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('STATIC_SECRET_KEY')
+
+AWS_STORAGE_BUCKET_NAME = os.getenv('STATIC_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL = os.getenv('STATIC_ENDPOINT_URL')
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+AWS_DEFAULT_ACL = 'public-read'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+#STATIC_URL = '{}/{}/'.format(AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+#STATIC_ROOT = 'static/'
+
 STATIC_URL = '/static/static/'
 MEDIA_URL = '/static/media/'
 
@@ -229,4 +252,35 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 #CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+#LOGS capturados por kubernetes en oceandigital
+
+
+# Clear prev config
+LOGGING_CONFIG = None
+
+# Get loglevel from env
+LOGLEVEL = os.getenv('DJANGO_LOGLEVEL', 'info').upper()
+
+logging.config.dictConfig({
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(asctime)s %(levelname)s [%(name)s:%(lineno)s] %(module)s %(process)d %(thread)d %(message)s',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console',
+        },
+    },
+    'loggers': {
+        '': {
+            'level': LOGLEVEL,
+            'handlers': ['console',],
+        },
+    },
+})
 

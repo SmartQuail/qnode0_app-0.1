@@ -10,7 +10,7 @@ RUN git clone https://github.com/SmartQuail/qnode0_app-0.1.git
 
 COPY ./requirements.txt /requirements.txt
 COPY ./scripts /scripts
-
+COPY ./.env /.env
 
 
 
@@ -47,3 +47,4 @@ ENV PATH="/scripts:/py/bin:$PATH"
 USER qnode0
 
 CMD ["run.sh"]
+CMD ["gunicorn", "--bind", ":9000", "--workers", "3", "qnode0_app.wsgi:application"]

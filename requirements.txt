@@ -5,9 +5,10 @@ wagtail
 psycopg2>=2.8.6,<2.9
 #Servers
 celery
-uWSGI >=2.0.19.1,<2.1
+#uWSGI >=2.0.19.1,<2.1
 redis == 2.10.3
-#gunicorn>=20.0.4,<20.1
+gunicorn>=20.0.4,<20.1
+django-storages
 
 #Lenguaje
 django-parler
